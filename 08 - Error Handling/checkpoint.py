@@ -1,7 +1,18 @@
 # Importante: No modificar ni el nombre ni los argumetos que reciben las funciones, sólo deben escribir
 # código dentro de las funciones ya definidas.
 
+from imp import NullImporter
+from math import factorial
+
+
 def Factorial(numero):
+    if (type(numero) != int):
+        return None
+    if (numero < 1):
+        return None
+    if (numero > 1):
+        numero = numero * Factorial(numero-1)
+    return numero
     '''
     Esta función devuelve el factorial del número pasado como parámetro.
     En caso de que no sea de tipo entero y/o sea menor que 1, debe retornar nulo.
@@ -11,10 +22,16 @@ def Factorial(numero):
         Factorial(4) debe retornar 24
         Factorial(-2) debe retornar nulo
     '''
-    #Tu código aca:
-    return 'Funcion incompleta'
 
 def EsPrimo(valor):
+    if (type(valor) != int):
+        return None
+    es_primo = True
+    for i in range (2,valor):
+        if(valor % i == 0):
+            es_primo = False    
+            break
+    return es_primo
     '''
     Esta función devuelve el valor booleano True si el número reibido como parámetro es primo, de lo 
     contrario devuelve False..
@@ -25,10 +42,24 @@ def EsPrimo(valor):
         EsPrimo(7) debe retornar True
         EsPrimo(8) debe retornar False
     '''
-    #Tu código aca:
-    return 'Funcion incompleta'
+    
     
 def ClaseAnimal(especie, color):
+    
+    class Animal:
+        def __init__ (self,especie,color):
+            self.edad = 0
+            self.especie = especie
+            self.color = color
+
+
+        def CumplirAnios(self):
+            self.edad += 1
+            return self.edad
+    
+    m = Animal(especie,color)
+    return m
+    
     '''
     Esta función devuelve un objeto instanciado de la clase Animal, 
     la cual debe tener los siguientes atributos:
@@ -47,4 +78,3 @@ def ClaseAnimal(especie, color):
         a.CumpliAnios() -> debe devolver 3
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
